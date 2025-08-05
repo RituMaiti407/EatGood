@@ -8,7 +8,7 @@ api_key = os.getenv("SPOONACULAR_API_KEY")
 
 query = input("Enter food ")
 search_url = f"https://api.spoonacular.com/recipes/complexSearch?query={query}&number=1&apiKey={api_key}"
-
+# hi 
 response = requests.get(search_url)
 data = response.json()
 print(data)
@@ -23,3 +23,4 @@ if data["results"]:
         print("-", ingredient["original"])
 else:
     print("No recipes found.")
+
