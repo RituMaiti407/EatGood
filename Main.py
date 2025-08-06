@@ -1,10 +1,8 @@
 
 import os 
 import requests
-import webbrowser
-import matplotlib.pyplot as plt
+#import webbrowser
 from dotenv import load_dotenv
-
 
 
 load_dotenv()
@@ -19,12 +17,12 @@ response = requests.get(search_url) #http request to find recipe for query
 data = response.json() #recipe info
 print(data) #im going to do more with this soon such as dispalying the image found on the actual spoonacular page
 if data["results"]:
-    recipe_id = data["results"][0]["id"]
-    info_url = f"https://api.spoonacular.com/recipes/{recipe_id}/information?apiKey={api_key}"
+    recipe_id = data["results"][0]["id"] #I am going to make it such that you can choose which food recipe you want
+    info_url = f"https://api.spoonacular.com/recipes/{recipe_id}/information?apiKey={api_key}" 
 
     recipe_info = requests.get(info_url).json()
     print("image URL: ", recipe_info["image"])
-    webbrowser.open(recipe_info["image"])
+    #webbrowser.open(recipe_info["image"])
 
     print(f"Recipe: {recipe_info['title']}")
     print(" Ingredients:")
